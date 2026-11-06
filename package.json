@@ -1,0 +1,22 @@
+{
+  "name": "china-war-atlas",
+  "version": "1.0.0",
+  "description": "烽火舆图：从鸦片战争到对越自卫反击战的中国近代战争史交互地图",
+  "private": true,
+  "license": "MIT",
+  "author": "实诚",
+  "scripts": {
+    "fetch": "bash scripts/fetch-raw.sh",
+    "geo": "node scripts/build-geo.js",
+    "relief": "python3 scripts/build-relief.py",
+    "bundle": "python3 scripts/bundle.py",
+    "build": "npm run geo && npm run relief && npm run bundle",
+    "serve": "python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "polygon-clipping": "0.15.7",
+    "topojson-client": "3.1.0",
+    "topojson-server": "3.0.1",
+    "topojson-simplify": "3.0.3"
+  }
+}
